@@ -63,8 +63,8 @@ fzf_kollzsh() {
 
   # Get absolute path to the script directory
   PLUGIN_DIR=${${(%):-%x}:A:h}
-  KOLLZSH_COMMANDS=$(python3 "$PLUGIN_DIR/ollama_util.py" "$KOLLZSH_USER_QUERY")
-  
+  #KOLLZSH_COMMANDS=$(python3 "$PLUGIN_DIR/ollama_util.py" "$KOLLZSH_USER_QUERY")
+  KOLLZSH_COMMANDS=$("$PLUGIN_DIR/venv/bin/python" "$PLUGIN_DIR/ollama_util.py" "$KOLLZSH_USER_QUERY")
   if [ $? -ne 0 ] || [ -z "$KOLLZSH_COMMANDS" ]; then
     log_debug "Failed to parse commands"
     echo "Error: Failed to parse commands"
